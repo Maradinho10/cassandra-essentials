@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+group 'com.maradinho.learning.cassandra'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.datastax.cassandra:cassandra-driver-core:3.2.0'
+    implementation 'com.datastax.cassandra:cassandra-driver-mapping:3.2.0'
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'org.slf4j:slf4j-simple:1.7.36'
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task cassandra(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.maradinho.learning.cassandra.CassandraExample'
+}
