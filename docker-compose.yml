@@ -1,0 +1,15 @@
+---
+version: '3'
+services:
+  cassandra:
+    container_name: essentials-cassandra
+    ports:
+      - "9042:9042"
+    volumes:
+      - ~/apps/cassandra:/var/lib/cassandra
+    environment:
+      - CASSANDRA_CLUSTER_NAME=m10cass
+    build:
+      dockerfile: dockerfiles/cassandra.dockerfile
+      args:
+        VERSION: 4.0
