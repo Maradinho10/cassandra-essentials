@@ -22,7 +22,12 @@ test {
     useJUnitPlatform()
 }
 
-task cassandra(type: JavaExec) {
+task cassandraExample(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'com.maradinho.learning.cassandra.CassandraExample'
+}
+
+task objectMappingExample(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.maradinho.learning.cassandra.ObjectMappingExample'
 }
